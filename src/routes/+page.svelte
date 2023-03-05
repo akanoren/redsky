@@ -78,6 +78,34 @@
       return;
     }
   }
+
+  async function post() {
+    try {
+      const stored = localStorage.getItem(SESSION_KEY);
+      if (stored == null) {
+        alert("session not found");
+        return;
+      }
+      const parsed: Session = JSON.parse(stored);
+      if (parsed == null) {
+        alert("session not found");
+        return;
+      }
+      const text = document.querySelector<HTMLInputElement>("textarea[name=text]")?.value as string;
+      const result = agent.api.app.bsky.feed.post.create(
+        { did: parsed.did},
+        { text, createdAt: new Date().toISOString() }
+      );
+      document.querySelector<HTMLInputElement>("textarea[name=text]")!.value = "";
+      await refresh();
+      return result
+    } catch(ex) {
+      console.error({ error: ex });
+      alert("loading timeline failed");
+      return;
+    }
+  }
+
 </script>
 
 {#await resumeSession()}
@@ -93,6 +121,10 @@
     {#await refresh()}
       loading...
     {:then}
+      <form method="POST" on:submit|preventDefault={post} style="margin-bottom: 20px">
+        <textarea name="text" style="width: 100%; height: 100px;" />
+        <input type="submit" value="Post" />
+      </form>
       <button on:click={refresh}>Refresh</button>
       {#if timeline}
         {#each timeline.feed as post}
