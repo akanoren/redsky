@@ -2,24 +2,22 @@
   import { AtpAgent } from "@atproto/api";
   import type { AtpPersistSessionHandler } from "@atproto/api";
   import Post from "$lib/components/post.svelte";
+  import { session, timeline } from "$lib/stores";
 
   const SESSION_KEY = 'session';
-  const persistSession: AtpPersistSessionHandler = (_, session) => {
-    if (session != null) {
-      localStorage.setItem(SESSION_KEY, JSON.stringify(session))
+  const persistSession: AtpPersistSessionHandler = (_, ses) => {
+    if (ses != null) {
+      localStorage.setItem(SESSION_KEY, JSON.stringify(ses))
     };
   };
 
   type Session = Parameters<AtpPersistSessionHandler>[1];
-  type Timeline = Awaited<ReturnType<InstanceType<typeof AtpAgent>['api']['app']['bsky']['feed']['getTimeline']>>['data'];
 
   const agent = new AtpAgent({ service: 'https://bsky.social', persistSession });
-  let session: Session | null;
-  let timeline: Timeline | null;
 
   async function resumeSession() {
     try {
-      if (session != null) {
+      if ($session != null) {
         return
       }
       const stored = localStorage.getItem(SESSION_KEY);
@@ -34,7 +32,7 @@
       if (!success) {
         return;
       }
-      session = parsed;
+      $session = parsed;
     } catch(ex) {
       console.log({ ex });
       alert(ex);
@@ -60,7 +58,7 @@
         alert("signing in failed.");
         return;
       }
-      session = data;
+      $session = data;
     } catch(ex) {
       console.error({ error: ex });
       alert("signing in failed.");
@@ -75,7 +73,7 @@
         alert("loading timeline failed.")
         return;
       }
-      timeline = data;
+      $timeline = data;
     } catch(ex) {
       console.error({ error: ex });
       alert("loading timeline failed");
@@ -85,13 +83,13 @@
 
   async function post() {
     try {
-      if (session == null) {
+      if ($session == null) {
         alert("you must be signed in before post");
         return;
       }
       const text = document.querySelector<HTMLInputElement>("textarea[name=text]")?.value as string;
       const result = agent.api.app.bsky.feed.post.create(
-        { did: session.did},
+        { did: $session.did},
         { text, createdAt: new Date().toISOString() }
       );
       document.querySelector<HTMLInputElement>("textarea[name=text]")!.value = "";
@@ -106,17 +104,21 @@
 
 </script>
 
+<style>
+
+</style>
+
 {#await resumeSession()}
   <div>loading...</div>
 {:then}
-  {#if !session}
-    <form method="POST" on:submit|preventDefault={signin}>
+  {#if !$session}
+    <form name="signin" method="POST" on:submit|preventDefault={signin}>
       <input name="identifier" type="email" />
       <input name="password" type="password" />
       <input type="submit" value="Sign In" />
     </form>
   {:else}
-    <form method="POST" on:submit|preventDefault={post} style="margin-bottom: 20px">
+    <form name="post" method="POST" on:submit|preventDefault={post} style="margin-bottom: 20px">
       <textarea name="text" style="width: 95%; height: 100px;" />
       <input type="submit" value="Post" />
     </form>
@@ -124,8 +126,8 @@
     {#await refresh()}
       <div>loading...</div>
     {:then}
-      {#if timeline}
-        {#each timeline.feed as post}
+      {#if $timeline}
+        {#each $timeline.feed as post}
           <Post post={post} />
         {/each}
       {/if}
