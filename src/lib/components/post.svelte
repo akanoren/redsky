@@ -16,23 +16,6 @@
   }
 </script>
 
-<style>
-  .post {
-    width: 100%;
-    border-top-style: solid;
-    border-color: gray;
-    border-top-width: 1px;
-    padding: 0.5em;
-  }
-  .post > .name {
-    margin-bottom: 0.5em;
-    font-weight: bold;
-  }
-  .post > .message {
-    margin-left: 1em;
-  }
-</style>
-
 <div class="post">
   <div class="name">{post.post.author.displayName}</div>
   <div class="message">
