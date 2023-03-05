@@ -107,7 +107,7 @@
 </script>
 
 {#await resumeSession()}
-  loading...
+  <div>loading...</div>
 {:then}
   {#if !session}
     <form method="POST" on:submit|preventDefault={signin}>
@@ -116,14 +116,14 @@
       <input type="submit" value="Sign In" />
     </form>
   {:else}
+    <form method="POST" on:submit|preventDefault={post} style="margin-bottom: 20px">
+      <textarea name="text" style="width: 95%; height: 100px;" />
+      <input type="submit" value="Post" />
+    </form>
+    <button on:click={refresh}>Refresh</button>
     {#await refresh()}
-      loading...
+      <div>loading...</div>
     {:then}
-      <form method="POST" on:submit|preventDefault={post} style="margin-bottom: 20px">
-        <textarea name="text" style="width: 100%; height: 100px;" />
-        <input type="submit" value="Post" />
-      </form>
-      <button on:click={refresh}>Refresh</button>
       {#if timeline}
         {#each timeline.feed as post}
           <Post post={post} />
