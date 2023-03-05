@@ -6,19 +6,6 @@
   import Timeline from "$lib/components/timeline.svelte";
 </script>
 
-<style>
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .container > .center {
-    flex: 700px;
-  }
-  .container > .left, .right {
-    flex: 0px;
-  }
-</style>
-
 <div class="container">
   <div class="left"></div>
   <div class="center">
