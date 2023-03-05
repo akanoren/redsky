@@ -4,8 +4,11 @@
   import Post from "$lib/components/post.svelte";
 
   const SESSION_KEY = 'session';
-  const persistSession: AtpPersistSessionHandler = (_, session) =>
-    localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+  const persistSession: AtpPersistSessionHandler = (_, session) => {
+    if (session != null) {
+      localStorage.setItem(SESSION_KEY, JSON.stringify(session))
+    };
+  };
 
   type Session = Parameters<AtpPersistSessionHandler>[1];
   type Timeline = Awaited<ReturnType<InstanceType<typeof AtpAgent>['api']['app']['bsky']['feed']['getTimeline']>>['data'];
@@ -35,6 +38,7 @@
     } catch(ex) {
       console.log({ ex });
       alert(ex);
+      localStorage.removeItem(SESSION_KEY);
       return;
     }
   }
