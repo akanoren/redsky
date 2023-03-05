@@ -17,6 +17,9 @@
 </script>
 
 <div class="post">
+  <div class="avatar">
+    <img src={post.post.author.avatar} alt=""/>
+  </div>
   <div class="name">{post.post.author.displayName}</div>
   <div class="message">
     <div >{getText(post)}</div>
