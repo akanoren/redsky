@@ -81,19 +81,13 @@
 
   async function post() {
     try {
-      const stored = localStorage.getItem(SESSION_KEY);
-      if (stored == null) {
-        alert("session not found");
-        return;
-      }
-      const parsed: Session = JSON.parse(stored);
-      if (parsed == null) {
-        alert("session not found");
+      if (session == null) {
+        alert("you must be signed in before post");
         return;
       }
       const text = document.querySelector<HTMLInputElement>("textarea[name=text]")?.value as string;
       const result = agent.api.app.bsky.feed.post.create(
-        { did: parsed.did},
+        { did: session.did},
         { text, createdAt: new Date().toISOString() }
       );
       document.querySelector<HTMLInputElement>("textarea[name=text]")!.value = "";
