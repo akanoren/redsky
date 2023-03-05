@@ -18,7 +18,7 @@
 
 <style>
   .post {
-    margin-top: 1em;
+    width: 100%;
     border-top-style: solid;
     border-color: gray;
     border-top-width: 1px;
