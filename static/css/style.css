@@ -99,7 +99,7 @@ border-radius: 20px;
 .post {
   width: 100%;
   border-top-style: solid;
-  border-color: gray;
+  border-color: #DDDDDD;
   border-top-width: 1px;
   padding: 0.5em;
 }
