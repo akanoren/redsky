@@ -67,7 +67,7 @@ body{
   border-color: #0095d6;
   }
 
-input.post{
+input.submit-post{
     background-image: url("https://raw.githubusercontent.com/akanoren/redsky/main/static/css/post2.png");
     background-size: 25px 25px;
     background-repeat: no-repeat;
