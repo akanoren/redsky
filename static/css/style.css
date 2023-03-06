@@ -99,10 +99,18 @@ border-radius: 20px;
   padding: 0.5em;
 }
 
+.post > .avatar > img{
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  float: left;
+}
+
 .post > .name {
   margin-bottom: 0.5em;
   font-weight: bold;
+  margin-left: 4em;
 }
 .post > .message {
-  margin-left: 1em;
+  margin-left: 4em;
 }
