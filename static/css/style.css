@@ -1,3 +1,8 @@
+/* Font Change */
+body{
+font-family: "Yu Gothic","Hiragino Sans";
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
