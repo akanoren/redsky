@@ -131,3 +131,8 @@ input.post{
   .post > .message {
     margin-left: 4em;
   }
+
+  .post > .name > .time {
+    font-size: 11px;
+    font-weight: normal;
+  }
