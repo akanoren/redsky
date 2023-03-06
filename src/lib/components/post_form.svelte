@@ -5,6 +5,6 @@
 <form name="post" method="POST" on:submit|preventDefault={post}>
   <textarea name="text" />
   <div class="to-right">
-    <input type="submit" value="Post" />
+    <input class="submit-post" type="submit" value="Post" />
   </div>
 </form>
