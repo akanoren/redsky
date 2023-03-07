@@ -132,6 +132,16 @@ input.submit-post{
     margin-left: 4em;
   }
 
+/* Tablet (min-width: 768px) Design */
+@media screen and (min-width: 768px){
+    .post > .message{
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        width:920px;
+        font-size: 18px;
+    }
+    
+}
 
 /*Smartphone (max-width: 480px) Design */
 @media screen and (max-width: 480px) {
