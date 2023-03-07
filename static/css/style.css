@@ -126,13 +126,14 @@ input.submit-post{
   .post > .name {
     margin-bottom: 0.5em;
     font-weight: bold;
-    margin-left: 4em;
+    margin-left: 69px;
   }
+
   .post > .message {
     margin-left: 4em;
     word-wrap: break-word;
-     width: 500px;
-      font-size:17px;
+    width: 500px;
+    font-size:17px;
   }
 
 span.time{
@@ -161,17 +162,15 @@ span.time{
     .post > .message{
 　　　overflow-wrap: break-word;
 　　　word-wrap: break-word;
-        width:1280px;
+        width: 1280px;
         font-size: 50px;
+        padding-left: 40px;
     }
     .post{
         font-size: 60px;
         word-wrap: break-word;
     }
     
-    div.message{
-    padding: 0px 0px 0px 35px;
-    }
     
     input.submit-post{
     background-image: url("https://raw.githubusercontent.com/akanoren/redsky/main/static/css/post5.png");
