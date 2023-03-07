@@ -162,11 +162,15 @@ span.time{
 　　　overflow-wrap: break-word;
 　　　word-wrap: break-word;
         width:1280px;
-        font-size: 50px;        
+        font-size: 50px;
     }
     .post{
         font-size: 60px;
         word-wrap: break-word;
+    }
+    
+    div.message{
+    padding: 0px 0px 0px 35px;
     }
     
     input.submit-post{
