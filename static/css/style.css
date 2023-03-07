@@ -132,8 +132,14 @@ input.submit-post{
     margin-left: 4em;
   }
 
+span.time{
+    font-family:"Arial";
+    font-weight: normal;
+    font-style: italic;
+}
+
 /* Tablet (min-width: 768px) Design */
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) and ( max-width:1100px){
     .post > .message{
         overflow-wrap: break-word;
         word-wrap: break-word;
@@ -206,6 +212,77 @@ input.submit-post{
         border-width: 2px;
         border-radius: 20px;
     }
+    
+}
+
+/* iPhone SE (max-width: 375px) Design */
+@media screen and (max-width: 375px){
+    body{
+        width: 100%;
+        max-width: 480px;
+    }
+    .post > .message{
+　　　overflow-wrap: break-word;
+　　　word-wrap: break-word;
+      width: 980px;
+      font-size: 50px;        
+    }
+    
+    div.name{
+        margin: 0px 0px 0px 15px;
+    }
+    
+    .post{
+        font-size: 60px;
+        word-wrap: break-word;
+    }
+    
+    input.submit-post{
+    background-image: url("https://raw.githubusercontent.com/akanoren/redsky/main/static/css/post5.png");
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    background-position: left 39px center;
+    }
+    
+    form[name=post] input[type="submit" i]{
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    border-radius: 50%;
+    position: absolute;
+    top: 400px;
+    left: 300px;
+    font-size: 0;
+    }
+    
+    .refresh-button{
+    background-image: url("https://raw.githubusercontent.com/akanoren/redsky/main/static/css/refresh2.png");
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    border-radius: 50%;
+    position: absolute;
+    top: 400px;
+    left: 50px;
+    font-size: 0;
+    }
+    
+    .timeline{
+        margin: 300px 0px 0px 0px;
+    }
+    
+    form[name=post] > textarea{
+        width: 100%;
+        max-width: 100%;
+        margin: 0px 0px 0px 0px;
+        padding: 10px 10px 300px 10px;
+        font-size: 70px;
+        border-width: 2px;
+        border-radius: 20px;
+    }    
     
 }
 
