@@ -230,8 +230,7 @@ span.time{
     .post > .message{
 　　　overflow-wrap: break-word;
 　　　word-wrap: break-word;
-      width: 980px;
-      font-size: 50px;        
+      width: 980px;       
     }
     
     div.name{
