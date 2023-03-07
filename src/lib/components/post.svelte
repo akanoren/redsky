@@ -5,7 +5,7 @@
   import Autolinker from 'autolinker';
 
   TimeAgo.addDefaultLocale(en)
-  const autolinker = new Autolinker({newWindow: true});
+  const autolinker = new Autolinker({newWindow: true, hashtag: 'twitter'});
 
   type Post = Awaited<ReturnType<InstanceType<typeof AtpAgent>['api']['app']['bsky']['feed']['getTimeline']>>['data']['feed'][number];
 
