@@ -56,7 +56,7 @@ body{
   border-color: #00acee;
   background-color: #00acee;
   border-radius: 20px;
-  padding:8px 15px 8px 15px;
+  padding:8px 15px 8px 25px;
   color: #FFFFFF;
   cursor: pointer;
   }
@@ -71,7 +71,7 @@ input.submit-post{
     background-image: url("https://raw.githubusercontent.com/akanoren/redsky/main/static/css/post5.png");
     background-size: 25px 25px;
     background-repeat: no-repeat;
-    background-position: left 34px center;
+    background-position: left 39px center;
 }
   
   /* Textarea Design */
@@ -99,13 +99,13 @@ input.submit-post{
     border-color: #6A5ACD;
     background-color: #6A5ACD;
     border-radius: 20px;
-    padding:8px 15px 8px 15px;
+    padding:8px 15px 8px 29px;
     color: #FFFFFF;
     cursor: pointer;
     background-image: url("https://raw.githubusercontent.com/akanoren/redsky/main/static/css/refresh2.png");
     background-size: 25px 25px;
     background-repeat: no-repeat;
-    background-position: left 5px center;
+    background-position: left 10px center;
   }
   
   .post {
