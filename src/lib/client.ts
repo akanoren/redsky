@@ -89,7 +89,7 @@ export async function post() {
       return;
     }
     const text = document.querySelector<HTMLInputElement>("textarea[name=text]")?.value as string;
-    const result = agent.api.app.bsky.feed.post.create(
+    const result = await agent.api.app.bsky.feed.post.create(
       { did: $session.did},
       { text, createdAt: new Date().toISOString() }
     );
