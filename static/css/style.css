@@ -190,6 +190,7 @@ span.time{
     font-size: 0;
         position: fixed;
         z-index: 10000;
+        margin-left: -20px;
     }
     
     .refresh-button{
@@ -272,6 +273,7 @@ span.time{
         position: fixed;
         top: 400px;
         z-index: 10000;
+        margin-left: -20px;
     }
     
     .refresh-button{
@@ -340,6 +342,7 @@ span.time{
         position: fixed;
         top: 400;
         z-index: 10000;
+        margin-left: -20px;
     }
     
     .refresh-button{
